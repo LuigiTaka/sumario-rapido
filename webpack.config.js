@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.js',
+    devtool: "inline-source-map",
+    entry: './src/index.ts',
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Text Rank',
@@ -15,6 +16,16 @@ module.exports = {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
     },
+     resolve: {
+        // Add `.ts` and `.tsx` as a resolvable extension.
+        extensions: [".ts", ".tsx", ".js"],
+        // Add support for TypeScripts fully qualified ESM imports.
+        extensionAlias: {
+         ".js": [".js", ".ts"],
+         ".cjs": [".cjs", ".cts"],
+         ".mjs": [".mjs", ".mts"]
+        }
+      },
     module: {
         rules: [
             {
@@ -29,6 +40,11 @@ module.exports = {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
             },
+            
+            { 
+                test: /\.([cm]?ts|tsx)$/, 
+                loader: "ts-loader"
+            }
 
         ],
 
