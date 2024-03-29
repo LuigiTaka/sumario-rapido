@@ -3,7 +3,81 @@
 
     <head>
 
+
         <title> Teste </title>
+
+        <style>
+    
+
+            
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f0f0f0;
+                margin: 0;
+                padding: 0;
+            }
+
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            textarea {
+                width: calc(100% - 40px); /* Para deixar 20px de margem à esquerda e 20px de margem à direita */
+                height: calc(100vh - 150px); /* Ocupa toda a altura da janela do navegador, deixando espaço para o botão e a linha */
+                margin: 20px;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+
+            hr {
+                border: none;
+                border-top: 1px solid #ccc;
+                margin: 20px 0;
+            }
+
+            select, button {
+                display: inline-block;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                background-color: #007bff;
+                color: #fff;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+
+            select {
+                width: calc(100% - 150px); /* Deixa espaço para o botão */
+                margin-right: 20px;
+            }
+
+            button {
+                width: 100px;
+                margin-left: 20px;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            ol {
+                list-style-type: decimal;
+                padding-left: 20px;
+            }
+
+            #list li {
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+                    
+                </style>
+
 
     </head>
 
@@ -11,18 +85,25 @@
     <body>
 
 
-        <select id='options'>
+        <form>
 
 
-        </select>
+            <select id='options'>
+            </select>
 
-        <textarea id='textarea'>
-        </textarea>
+
+            <textarea id='textarea'>
+            </textarea>
+
+
+
+            <button id='trigger' type='button'> Rankear </button>
+        </form>
+
 
         <ol id='list'>
         </ol>
 
-        <button id='trigger'> Rankear </button>
 
 
     </body> 
