@@ -1,9 +1,8 @@
-    import { SorensenDiceSimilarity, DefaultTextParser, ConsoleLogger, RelativeSummarizerConfig, Summarizer, NullLogger, Sentence } from "ts-textrank";
-
-
+import { SorensenDiceSimilarity, DefaultTextParser, ConsoleLogger, RelativeSummarizerConfig, Summarizer, NullLogger, Sentence } from "ts-textrank";
 
 //Only one similarity function implemented at this moment.
 //More could come in future versions.
+
 const sim = new SorensenDiceSimilarity()
 
 //Only one text parser available a this moment
@@ -58,7 +57,6 @@ const $textarea = (<HTMLInputElement>document.getElementById("textarea"))
 const $trigger = document.getElementById('trigger')
 const $list = document.getElementById('list')
 
-console.log( LANG_OPT );
 
 
 LANG_OPT.forEach( (opt) => {
@@ -76,12 +74,13 @@ $trigger.addEventListener('click',(e) => {
 
     const text = $textarea.value
     const lang = $select.value;
-    console.log( text )
-    console.log( lang )
 
     const summary = summarizer.summarize(text, lang)
 
-    console.log( summary )
+
+    if( summary.length === 0 ){
+        summary.push( "Nada encontrado." );
+    }
 
     $list.innerHTML = '';
     summary.forEach(  ( phrase ) =>{ 
